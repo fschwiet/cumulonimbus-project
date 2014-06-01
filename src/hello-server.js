@@ -13,11 +13,3 @@ server.listen(8080);
 // Put a friendly message on the terminal
 console.log("Server running at http://*:8080/");
 
-function showStatus() {
-	console.log("running...");
-
-	setInterval(showStatus, 60 * 1000);
-}
-
-showStatus();
-
