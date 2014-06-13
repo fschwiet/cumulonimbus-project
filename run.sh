@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Remove the CUMULONIMBUS_FAIL_RUN check in real projects, its for testing.
-if ! [ -n $CUMULONIMBUS_FAIL_RUN ]
+if [ -n "$CUMULONIMBUS_FAIL_RUN" ]
 then
 	echo "Failure forced by CUMULONIMBUS_FAIL_RUN"
 	exit 1
