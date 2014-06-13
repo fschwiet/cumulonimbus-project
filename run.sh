@@ -1,5 +1,14 @@
 #!/bin/sh
 
+# Remove the CUMULONIMBUS_FAIL_RUN check in real projects, its for testing.
+if $CUMULONIMBUS_FAIL_RUN
+then
+	echo "Failure forced by CUMULONIMBUS_FAIL_RUN"
+	exit 1
+fi
+
+
+# recording existing PM2 ids so they can be removed 
 id_selector="^pm2\s*id\s*:\s*\([0-9]*\)\s*$"
 old_ids=$(pm2 list -name hello-server | grep $id_selector | sed "s/$id_selector/\1/")
 
