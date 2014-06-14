@@ -8,6 +8,9 @@ then
 fi
 
 
+#laster call to pm2 list -name was stalling on first run)
+pm2 list
+
 # recording existing PM2 ids so they can be removed 
 id_selector="^pm2\s*id\s*:\s*\([0-9]*\)\s*$"
 old_ids=$(pm2 list -name hello-server | grep $id_selector | sed "s/$id_selector/\1/")
