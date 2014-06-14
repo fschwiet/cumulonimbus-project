@@ -12,8 +12,13 @@ fi
 pm2 list
 
 # recording existing PM2 ids so they can be removed 
-id_selector="^pm2\s*id\s*:\s*\([0-9]*\)\s*$"
-old_ids=$(pm2 list -name hello-server | grep $id_selector | sed "s/$id_selector/\1/")
+old_ids=$(pm2 jlist | node -e "var pm2List = JSON.parse(require('fs').readFileSync('/dev/stdin').toString()); 
+	pm2List.forEach(function(value) {
+		if (value.name == 'hello-server') {
+			console.log(value.pm2_env.pm_id);
+		}
+	});
+")
 
 if pm2 start ./src/hello-server.js --name hello-server
 then 
