@@ -2,7 +2,8 @@
 
 set -e
 
-app_name="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# the app name will be the parent of the script's directory
+app_name="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"
 
 # Remove the CUMULONIMBUS_FAIL_RUN check in real projects, its for testing.
 if [ -n "$CUMULONIMBUS_FAIL_RUN" ]
