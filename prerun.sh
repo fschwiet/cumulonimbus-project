@@ -1,5 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
+set -e
 
 # Remove the CUMULONIMBUS_FAIL_PRERUN check in real projects, its for testing.
 if [ -n "$CUMULONIMBUS_FAIL_PRERUN" ]

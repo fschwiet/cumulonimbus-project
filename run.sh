@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+
+set -e
 
 app_name="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
