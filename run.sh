@@ -13,7 +13,7 @@ then
 fi
 
 
-#laster call to pm2 list -name was stalling on first run)
+# later call to pm2 list -name was stalling on first run, run pm2 list to warm things up
 pm2 list
 
 # recording existing PM2 ids so they can be removed 
